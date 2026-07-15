@@ -8,6 +8,8 @@ import morgan from 'morgan';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 
+import authRoutes from '#routes/auth.routes.js';
+
 const app = express();
 
 // What we did here is we are using helmet and morgan middleware in our express app.
@@ -34,5 +36,21 @@ app.get('/', (req, res) => {
   logger.info('Hello from acquisition api');
   res.status(200).send('Hello from acquisition api');
 });
+
+app.get('/health', (req, res) => {
+  res.status(200).send({
+    status: 'ok',
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime(),
+  });
+});
+
+app.get('/api', (req, res) => {
+  res.status(200).send({
+    message: 'Acquisition API is running',
+  });
+});
+// Get requests can be made directly using localhost, but for put,post,update we need to use http client
+app.use('/api/auth', authRoutes);
 
 export default app;
