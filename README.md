@@ -23,6 +23,7 @@ This project demonstrates the evolution of a Node.js/Express API from a basic se
 - **ORM**: Drizzle ORM
 - **Logging**: Winston + Morgan
 - **Code Quality**: ESLint + Prettier
+- **Auth**: JWT (jsonwebtoken) + bcrypt + Zod
 
 ## Architecture
 
@@ -33,7 +34,8 @@ acquisitions/
 │       ├── 01-initial-commit.md
 │       ├── 02-eslint-prettier.md
 │       ├── 03-neon-drizzle.md
-│       └── 04-logger-middleware.md
+│       ├── 04-logger-middleware.md
+│       └── 05-authentication.md
 ├── src/
 │   ├── config/           # Configuration files (database, logger)
 │   ├── controllers/      # Request handlers
@@ -104,7 +106,7 @@ npm run db:studio     # Open Drizzle Studio
 
 ## Project Evolution
 
-This project was built incrementally through 4 key commits. Each commit represents a significant milestone in the application's evolution.
+This project was built incrementally through 5 key commits. Each commit represents a significant milestone in the application's evolution.
 
 | Commit | Message | Documentation |
 |--------|---------|---------------|
@@ -112,6 +114,7 @@ This project was built incrementally through 4 key commits. Each commit represen
 | fb78cf5 | Implement ESLint and Prettier | [Read More](docs/commits/02-eslint-prettier.md) |
 | 5c6ee7e | Setup Neon Postgres w/ Drizzle | [Read More](docs/commits/03-neon-drizzle.md) |
 | 4306b3d | Added logger in APP | [Read More](docs/commits/04-logger-middleware.md) |
+| XXXXXXX | Authentication setup | [Read More](docs/commits/05-authentication.md) |
 
 ### Commit Timeline
 
@@ -119,6 +122,7 @@ This project was built incrementally through 4 key commits. Each commit represen
 2. **ESLint & Prettier** - Implemented code quality tools for consistency and early error detection
 3. **Neon + Drizzle** - Integrated a serverless PostgreSQL database with type-safe ORM
 4. **Logger & Middleware** - Added comprehensive logging, security headers, and absolute imports
+5. **Authentication** - Added user signup with bcrypt password hashing, Zod validation, and JWT sessions delivered via httpOnly cookies
 
 ## API Endpoints
 
@@ -132,6 +136,34 @@ Returns a welcome message.
 }
 ```
 
+### POST /api/auth/sign-up
+Registers a new user, hashes the password with bcrypt, issues a JWT, and sets it as an httpOnly cookie.
+
+**Request Body:**
+```json
+{
+  "name": "Jane Doe",
+  "email": "jane@example.com",
+  "password": "secret123",
+  "role": "user"
+}
+```
+
+**Response (201):**
+```json
+{
+  "message": "User Registered",
+  "user": {
+    "id": 1,
+    "name": "Jane Doe",
+    "email": "jane@example.com",
+    "role": "user"
+  }
+}
+```
+
+> `POST /api/auth/sign-in` and `POST /api/auth/sign-out` are stubbed and return placeholder responses.
+
 ## Environment Variables
 
 | Variable | Description | Default |
@@ -140,6 +172,8 @@ Returns a welcome message.
 | NODE_ENV | Environment (development/production) | development |
 | LOG_LEVEL | Logging level | info |
 | DATABASE_URL | Neon Postgres connection string | - |
+| JWT_SECRET | Secret used to sign JWTs | your-secret-key-please-change-this |
+| JWT_EXPIRES_IN | JWT expiration duration | 1d |
 
 ## License
 
