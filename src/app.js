@@ -16,8 +16,13 @@ const app = express();
 // Helmet helps secure the app by setting various HTTP headers, while morgan logs HTTP requests and responses in a predefined format.
 app.use(helmet());
 app.use(cors());
-// This urlencoded middleware is used to parse incoming requests with urlencoded payloads.
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json()); // Handles application/json
+
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+); // Handles application/x-www-form-urlencoded
 
 app.use(cookieParser());
 
