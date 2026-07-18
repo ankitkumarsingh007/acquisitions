@@ -176,6 +176,14 @@ Registers a new user, hashes the password with bcrypt, issues a JWT, and sets it
 | JWT_SECRET | Secret used to sign JWTs | your-secret-key-please-change-this |
 | JWT_EXPIRES_IN | JWT expiration duration | 1d |
 
+## Security
+
+### Secure our API with ARCjet
+
+- **Config file**: `src/config/arcjet.js` — ARCjet is included to provide automated security hardening and runtime protections. Review and update this file to match your deployment requirements.
+- **Enable**: Import ARCjet early in the app bootstrap (for example in `src/app.js`): `import './config/arcjet.js'` so protections run before other modules.
+- **Secrets**: Keep ARCjet secrets and keys in environment variables (do not commit them). Rotate keys regularly and restrict access.
+
 ## License
 
 MIT

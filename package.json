@@ -36,6 +36,9 @@
   },
   "homepage": "https://github.com/ankitkumarsingh007/acquisitions#readme",
   "dependencies": {
+    "@arcjet/inspect": "^1.9.1",
+    "@arcjet/next": "^1.9.1",
+    "@arcjet/node": "^1.9.1",
     "@neondatabase/serverless": "^1.1.0",
     "bcrypt": "^6.0.0",
     "cookie-parser": "^1.4.7",
