@@ -116,6 +116,7 @@ This project was built incrementally through 5 key commits. Each commit represen
 | 4306b3d | Added logger in APP | [Read More](docs/commits/04-logger-middleware.md) |
 | XXXXXXX | Authentication setup | [Read More](docs/commits/05-authentication.md) |
 | YYYYYYY | Sign‑in & Sign‑out functionality | [Read More](docs/commits/06-sign-in-out.md) |
+| 38a6b71 | Secure our API with ARCjet | [Read More](docs/commits/07-arcjet-security.md) |
 
 ### Commit Timeline
 
