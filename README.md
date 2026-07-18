@@ -17,6 +17,7 @@ A production-ready Express.js API built with modern DevOps practices, featuring 
 This project demonstrates the evolution of a Node.js/Express API from a basic setup to a production-ready application with proper tooling, database integration, and observability.
 
 **Tech Stack:**
+
 - **Runtime**: Node.js (ES6 Modules)
 - **Framework**: Express.js
 - **Database**: Neon Postgres (Serverless)
@@ -108,15 +109,15 @@ npm run db:studio     # Open Drizzle Studio
 
 This project was built incrementally through 5 key commits. Each commit represents a significant milestone in the application's evolution.
 
-| Commit | Message | Documentation |
-|--------|---------|---------------|
-| f051d6e | Initial commit: Base app created | [Read More](docs/commits/01-initial-commit.md) |
-| fb78cf5 | Implement ESLint and Prettier | [Read More](docs/commits/02-eslint-prettier.md) |
-| 5c6ee7e | Setup Neon Postgres w/ Drizzle | [Read More](docs/commits/03-neon-drizzle.md) |
-| 4306b3d | Added logger in APP | [Read More](docs/commits/04-logger-middleware.md) |
-| XXXXXXX | Authentication setup | [Read More](docs/commits/05-authentication.md) |
-| YYYYYYY | Sign‑in & Sign‑out functionality | [Read More](docs/commits/06-sign-in-out.md) |
-| 38a6b71 | Secure our API with ARCjet | [Read More](docs/commits/07-arcjet-security.md) |
+| Commit  | Message                          | Documentation                                     |
+| ------- | -------------------------------- | ------------------------------------------------- |
+| f051d6e | Initial commit: Base app created | [Read More](docs/commits/01-initial-commit.md)    |
+| fb78cf5 | Implement ESLint and Prettier    | [Read More](docs/commits/02-eslint-prettier.md)   |
+| 5c6ee7e | Setup Neon Postgres w/ Drizzle   | [Read More](docs/commits/03-neon-drizzle.md)      |
+| 4306b3d | Added logger in APP              | [Read More](docs/commits/04-logger-middleware.md) |
+| XXXXXXX | Authentication setup             | [Read More](docs/commits/05-authentication.md)    |
+| YYYYYYY | Sign‑in & Sign‑out functionality | [Read More](docs/commits/06-sign-in-out.md)       |
+| 38a6b71 | Secure our API with ARCjet       | [Read More](docs/commits/07-arcjet-security.md)   |
 
 ### Commit Timeline
 
@@ -129,9 +130,11 @@ This project was built incrementally through 5 key commits. Each commit represen
 ## API Endpoints
 
 ### GET /
+
 Returns a welcome message.
 
 **Response:**
+
 ```json
 {
   "message": "Hello from Acquisitions API"
@@ -139,9 +142,11 @@ Returns a welcome message.
 ```
 
 ### POST /api/auth/sign-up
+
 Registers a new user, hashes the password with bcrypt, issues a JWT, and sets it as an httpOnly cookie.
 
 **Request Body:**
+
 ```json
 {
   "name": "Jane Doe",
@@ -152,6 +157,7 @@ Registers a new user, hashes the password with bcrypt, issues a JWT, and sets it
 ```
 
 **Response (201):**
+
 ```json
 {
   "message": "User Registered",
@@ -168,14 +174,14 @@ Registers a new user, hashes the password with bcrypt, issues a JWT, and sets it
 
 ## Environment Variables
 
-| Variable | Description | Default |
-|----------|-------------|---------|
-| PORT | Server port | 3000 |
-| NODE_ENV | Environment (development/production) | development |
-| LOG_LEVEL | Logging level | info |
-| DATABASE_URL | Neon Postgres connection string | - |
-| JWT_SECRET | Secret used to sign JWTs | your-secret-key-please-change-this |
-| JWT_EXPIRES_IN | JWT expiration duration | 1d |
+| Variable       | Description                          | Default                            |
+| -------------- | ------------------------------------ | ---------------------------------- |
+| PORT           | Server port                          | 3000                               |
+| NODE_ENV       | Environment (development/production) | development                        |
+| LOG_LEVEL      | Logging level                        | info                               |
+| DATABASE_URL   | Neon Postgres connection string      | -                                  |
+| JWT_SECRET     | Secret used to sign JWTs             | your-secret-key-please-change-this |
+| JWT_EXPIRES_IN | JWT expiration duration              | 1d                                 |
 
 ## Security
 

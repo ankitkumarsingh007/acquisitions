@@ -28,7 +28,7 @@ How to use
 2. Import ARCjet early in `src/app.js` or `src/index.js`:
 
 ```js
-import './config/arcjet.js'
+import './config/arcjet.js';
 ```
 
 3. Review `src/config/arcjet.js` and customize protections to fit your deployment.
