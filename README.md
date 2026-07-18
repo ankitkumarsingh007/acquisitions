@@ -115,6 +115,7 @@ This project was built incrementally through 5 key commits. Each commit represen
 | 5c6ee7e | Setup Neon Postgres w/ Drizzle | [Read More](docs/commits/03-neon-drizzle.md) |
 | 4306b3d | Added logger in APP | [Read More](docs/commits/04-logger-middleware.md) |
 | XXXXXXX | Authentication setup | [Read More](docs/commits/05-authentication.md) |
+| YYYYYYY | Sign‑in & Sign‑out functionality | [Read More](docs/commits/06-sign-in-out.md) |
 
 ### Commit Timeline
 
@@ -162,7 +163,7 @@ Registers a new user, hashes the password with bcrypt, issues a JWT, and sets it
 }
 ```
 
-> `POST /api/auth/sign-in` and `POST /api/auth/sign-out` are stubbed and return placeholder responses.
+165 | The **/api/auth/sign-in** endpoint authenticates a user and sets a JWT in an httpOnly cookie. The **/api/auth/sign-out** endpoint clears the authentication cookie.
 
 ## Environment Variables
 
